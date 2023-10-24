@@ -11,7 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //
+        Schema::create('tbl_detail_transaksi', function (Blueprint $table) {
+            $table->id();
+            $table->string('no_transaksi');
+            $table->integer('id_barang')->nullable();
+            $table->integer('qty')->nullable();
+            $table->timestamps();
+        });
     }
 
     /**
@@ -19,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('tbl_detail_transaksi');
     }
 };
